@@ -18,7 +18,7 @@ const corsOptions = {
   origin: [
     // `https://ffw-deploy-nu.vercel.app`,
     `http://localhost:${PORT_FE}`,                
-    // `https://ffw-deploy.onrender.com`,  
+     "https://fresh-fruit-web-deployment.vercel.app" 
   ],
   credentials: true,
 };
