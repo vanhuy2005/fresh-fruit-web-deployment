@@ -1,3 +1,2 @@
-const PORT = import.meta.env.PORT_BE || 3000;
-// export const API_URL = "https://ffw-deploy-backend.onrender.com/api/v1";
-export const API_URL = `http://localhost:${PORT}/api/v1`;
+// Lấy API_URL từ biến môi trường VITE_API_URL (ưu tiên cho production)
+export const API_URL = `${import.meta.env.VITE_API_URL}/api/v1`;
