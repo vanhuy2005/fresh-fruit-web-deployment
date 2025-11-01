@@ -3,7 +3,12 @@ import dotenv from "dotenv";
 import cors from "cors";
 import serverless from "serverless-http";
 
-import { GENERAL_API, ADMIN_API, CART_API, ORDER_API } from "./src/utils/constants.js";
+import {
+  GENERAL_API,
+  ADMIN_API,
+  CART_API,
+  ORDER_API,
+} from "./src/utils/constants.js";
 import { connectDB } from "./src/utils/db.js";
 import userRoute from "./src/routes/user.route.js";
 import adminRoute from "./src/routes/admin.route.js";
@@ -17,7 +22,7 @@ const app = express();
 const corsOptions = {
   origin: [
     `http://localhost:${process.env.PORT_FE || 5173}`,
-    "https://fresh-fruit-web-deployment.vercel.app"
+    "https://fresh-fruit-web-deployment.vercel.app",
   ],
   credentials: true,
 };
@@ -41,5 +46,5 @@ Promise.all([connectDB(), connectCloudinary()])
   .catch((err) => console.error("❌ Startup failed:", err?.message || err));
 
 // ❌ Không dùng app.listen()
-// ✅ Dùng handler export cho Vercel
-export const handler = serverless(app);
+// ✅ Dùng export default cho Vercel (ESM)
+export default serverless(app);
