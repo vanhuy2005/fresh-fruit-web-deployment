@@ -1,7 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import serverless from "serverless-http";
 
 import {
   GENERAL_API,
@@ -23,7 +22,7 @@ const corsOptions = {
   origin: [
     `http://localhost:${process.env.PORT_FE || 5173}`,
     "https://fresh-fruit-web-deployment.vercel.app",
-    "https://fresh-fruit-web-deployment-xsd7.vercel.app"
+    "https://fresh-fruit-web-deployment-xsd7.vercel.app",
   ],
   credentials: true,
 };
@@ -46,6 +45,8 @@ Promise.all([connectDB(), connectCloudinary()])
   .then(() => console.log("✅ Connected to DB & Cloudinary"))
   .catch((err) => console.error("❌ Startup failed:", err?.message || err));
 
-// ❌ Không dùng app.listen()
-// ✅ Dùng export default cho Vercel (ESM)
-export default serverless(app);
+// ✅ Dùng app.listen() cho Render
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+});
