@@ -29,9 +29,9 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-// test route
+// Test route
 app.get("/", (req, res) => {
-  res.send("✅ Backend is running successfully on Vercel!");
+  res.send("✅ Backend is running successfully on Render!");
 });
 
 // main routes
@@ -45,7 +45,7 @@ Promise.all([connectDB(), connectCloudinary()])
   .then(() => console.log("✅ Connected to DB & Cloudinary"))
   .catch((err) => console.error("❌ Startup failed:", err?.message || err));
 
-// ✅ Dùng app.listen() cho Render
+// Use app.listen() for Render
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
