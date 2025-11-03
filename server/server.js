@@ -22,12 +22,13 @@ const corsOptions = {
   origin: [
     `http://localhost:${process.env.PORT_FE || 5173}`,
     "https://fresh-fruit-web-deployment.vercel.app",
-  "https://fresh-fruit-web-deployment-xsd7.vercel.app",
-  "https://fresh-fruit-web-deployment-1.onrender.com",
+    "https://fresh-fruit-web-deployment-xsd7.vercel.app",
+    "https://fresh-fruit-web-deployment-1.onrender.com",
   ],
   credentials: true,
 };
 app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 app.use(express.json());
 
 // Test route
