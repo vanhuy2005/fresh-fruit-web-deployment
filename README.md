@@ -2,7 +2,7 @@
 
 ## Giới thiệu
 
-Fruithub là hệ thống thương mại điện tử về thực phẩm trái cây, rau củ tươi sống, được xây dựng với công nghệ hiện đại. Dự án bao gồm Frontend (React) và Backend (Node.js/Express).
+Fruithub là web bán thực phẩm trái cây, rau củ tươi sống, được xây dựng với công nghệ hiện đại. Dự án bao gồm Frontend (React) và Backend (Node.js/Express).
 
 ---
 
